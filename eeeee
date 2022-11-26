@@ -1,0 +1,29 @@
+godmode = false
+ 
+game:GetService('RunService').Stepped:connect(function()
+    if godmode == true then
+        if game.Players.LocalPlayer.Character ~= nil then
+            if game.Players.LocalPlayer.Character:FindFirstChild("Right Leg") then
+                game.Players.LocalPlayer.Character:FindFirstChild("Right Leg"):Destroy()
+            end
+        end
+    end
+    end)
+ 
+ 
+game.Players.LocalPlayer.Chatted:Connect(function(msg)
+local lower = string.lower(msg)
+ 
+if string.find(lower,";god") then
+    godmode = true       
+game.Players.LocalPlayer.Character:BreakJoints()
+end
+ 
+if string.find(lower,";ungod") then
+    godmode = false      
+game.Players.LocalPlayer.Character:BreakJoints()
+end
+end)
+--[[
+Made by Link
+--]]
